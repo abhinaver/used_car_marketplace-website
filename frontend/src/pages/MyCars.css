@@ -1,0 +1,109 @@
+.my-cars-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.my-cars-container h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.cars-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
+
+.car-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+  padding: 15px;
+}
+
+.car-card:hover {
+  transform: translateY(-5px);
+}
+
+.car-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.car-card h3 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  color: #222;
+}
+
+.car-card p {
+  font-size: 1rem;
+  margin: 5px 0;
+  color: #555;
+}
+
+.car-actions {
+  display: flex;
+  gap: 40px; /* Reduced the space between buttons */
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Edit Button */
+.edit-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.edit-btn:hover {
+  background-color: #1d6e21;
+}
+
+/* Delete Button */
+.delete-btn {
+  background-color: #FF3B30;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.delete-btn:hover {
+  background-color: #991b1b;
+}
+
+@media (max-width: 768px) {
+  .cars-list {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .car-actions {
+      flex-direction: column;
+      gap: 5px;
+  }
+
+  .edit-btn,
+  .delete-btn {
+      width: 100%;
+  }
+}

@@ -1,0 +1,75 @@
+/* Car Card Container */
+.car-card {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    width: 250px;
+    text-align: center;
+    margin: 20px;
+    height: 350px;
+    flex-direction: column;
+    display: inline-block;
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+  
+  .car-card:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Car Image */
+  
+  .car-card img {
+    width: 225px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 0px;
+    margin-top: 0px;
+  
+  }
+  
+  
+  /* Car Details */
+  .car-details {
+    padding: 12px;
+  }
+  
+  .car_name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #991515;
+    margin-bottom: 5px;
+  }
+  
+  .car_price {
+    font-size: 1rem;
+    color: #32dd7a;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .car_year {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  /* View Details Button */
+  .view-button {
+    background: #ff0000;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+    width: 225px;
+  }
+  
+  .view-button:hover {
+    background: #e20e0e;
+  }
+  

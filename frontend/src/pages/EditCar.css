@@ -1,0 +1,121 @@
+/* EditCar.css */
+.edit-car-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.edit-car-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.edit-car-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-car-form label {
+    font-weight: 600;
+    margin: 10px 0 5px;
+    color: #555;
+}
+
+.edit-car-form input,
+.edit-car-form select,
+.edit-car-form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: 0.3s ease-in-out;
+}
+
+.edit-car-form input:focus,
+.edit-car-form select:focus,
+.edit-car-form textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.3);
+}
+
+.edit-car-form textarea {
+    height: 100px;
+    resize: none;
+}
+
+.edit-car-btn-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.edit-car-btn {
+    width: 48%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.save-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.save-btn:hover {
+    background-color: #0056b3;
+}
+
+.cancel-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.cancel-btn:hover {
+    background-color: #a71d2a;
+}
+
+@media (max-width: 768px) {
+    .edit-car-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .edit-car-btn-container {
+        flex-direction: column;
+    }
+
+    .edit-car-btn {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+.delete-image-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: red;
+    border: none;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-image-btn:hover {
+    background: darkred;
+}

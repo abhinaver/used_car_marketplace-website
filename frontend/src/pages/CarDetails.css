@@ -1,0 +1,134 @@
+/* CarDetails.css */
+.car-details-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  font-family: "Arial", sans-serif;
+}
+
+/* Back Button */
+.back-button {
+  background-color: #d32f2f;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.back-button:hover {
+  background-color: #b71c1c;
+}
+
+/* Car Details Card */
+.car-details-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px;
+  border-radius: 12px;
+  background: #f9f9f9;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Car Image */
+.car-image {
+  width: 45%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Car Information */
+.car-info {
+  text-align: left;
+  width: 50%;
+  margin-left: 30px;
+}
+
+/* Car Name */
+.car-name {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+  text-align: center;
+}
+
+/* Car Attributes */
+.car-price,
+.car-model,
+.car-year,
+.car-location,
+.car-km,
+.car-owners,
+.car-color,
+.car-phone {
+  font-size: 18px;
+  color: #444;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+
+/* Highlight Price */
+.car-price span {
+  font-weight: bold;
+  color: #008000;
+}
+
+/* Contact Info */
+.car-phone span {
+  font-weight: bold;
+  color: #d32f2f;
+}
+
+/* Car Description */
+.car-description {
+  font-size: 16px;
+  color: #555;
+  margin-top: 15px;
+  line-height: 1.6;
+  font-style: italic;
+  text-align: center;
+}
+
+/* Buy Now Button */
+.buy-now {
+  background: #d32f2f;
+  color: white;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+.buy-now:hover {
+  background: #b71c1c;
+}
+
+/* Error Message */
+.error-message {
+  text-align: center;
+  font-size: 20px;
+  color: red;
+  font-weight: bold;
+}
