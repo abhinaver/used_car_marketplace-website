@@ -6,7 +6,7 @@ const CarCard = ({ car }) => {
   const navigate = useNavigate();
 
   const handleViewDetails = (carId) => {
-    fetch(`http://localhost:8081/get-cars/increment-clicks/${carId}`, {  // ✅ Fixed API call
+    fetch(`http://localhost:8081/get-cars/increment-clicks/${carId}`, {  
       method: "POST",
     }).catch((error) => console.error("Error updating clicks:", error));
 
@@ -15,7 +15,11 @@ const CarCard = ({ car }) => {
 
   return (
     <div className="car-card">
-      <img src={car.image} alt={car.name} className="car-image" />
+      {car.image ? (
+        <img src={car.image} alt={car.name} className="car-image" />
+      ) : (
+        <p className="no-image">Image not available</p>
+      )}
       <div className="car-details">
         <h2 className="car_name">{car.name}</h2>
         <p className="car_price">Price: ₹{car.price}</p>

@@ -14,7 +14,7 @@ import EditCar from "./pages/EditCar";
 
 const App = () => {
   const [searchQuery, setSearchQuery] = useState("");  // Manage search state here
-  const [selectedModel, setSelectedModel] = useState("");       // Model selection state
+  const [selectedPriceRange, setSelectedPriceRange] = useState("");
 
 
   return (
@@ -22,9 +22,10 @@ const App = () => {
     <Router>
       <Header searchQuery={searchQuery}
       setSearchQuery={setSearchQuery} 
-      setSelectedModel={setSelectedModel}   /> {/* Pass as props ,Pass setSelectedModel to Header*/} 
+      selectedPriceRange={selectedPriceRange}
+      setSelectedPriceRange={setSelectedPriceRange}   /> {/* Pass as props ,Pass setSelectedModel to Header*/} 
       <Routes>
-      <Route path="/" element={<Home searchQuery={searchQuery} selectedModel={selectedModel} />} />  {/* Pass searchQuery to Home */}
+      <Route path="/" element={<Home searchQuery={searchQuery}  selectedPriceRange={selectedPriceRange} />} />  {/* Pass searchQuery to Home */}
         <Route path="/car/:id" element={<CarDetails />} />
         <Route path="/sell" element={<SellCar />} />
         <Route path="/login" element={<Login />} /> {/* New Route for Login */}
