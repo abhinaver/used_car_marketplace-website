@@ -12,9 +12,12 @@ import { useState } from "react";
 import { GoogleOAuthProvider } from "@react-oauth/google";  // Import Google OAuth Provider
 import EditCar from "./pages/EditCar";
 
+
+
 const App = () => {
   const [searchQuery, setSearchQuery] = useState("");  // Manage search state here
   const [selectedPriceRange, setSelectedPriceRange] = useState("");
+  const [selectedKilometersRange, setSelectedKilometersRange] = useState("");
 
 
   return (
@@ -23,15 +26,19 @@ const App = () => {
       <Header searchQuery={searchQuery}
       setSearchQuery={setSearchQuery} 
       selectedPriceRange={selectedPriceRange}
-      setSelectedPriceRange={setSelectedPriceRange}   /> {/* Pass as props ,Pass setSelectedModel to Header*/} 
+      setSelectedPriceRange={setSelectedPriceRange} 
+      selectedKilometersRange={selectedKilometersRange} 
+      setSelectedKilometersRange={setSelectedKilometersRange}   /> {/* Pass as props ,Pass setSelectedModel to Header*/} 
       <Routes>
-      <Route path="/" element={<Home searchQuery={searchQuery}  selectedPriceRange={selectedPriceRange} />} />  {/* Pass searchQuery to Home */}
+      <Route path="/" element={<Home searchQuery={searchQuery}  selectedPriceRange={selectedPriceRange} selectedKilometersRange={selectedKilometersRange}/>} />  {/* Pass searchQuery to Home */}
         <Route path="/car/:id" element={<CarDetails />} />
         <Route path="/sell" element={<SellCar />} />
         <Route path="/login" element={<Login />} /> {/* New Route for Login */}
         <Route path="/Signup" element={<Signup/>} />
         <Route path="/my-cars/:username" element={<MyCars />} />
         <Route path="/edit-car/:id" element={<EditCar />} />
+        
+
 
 
 

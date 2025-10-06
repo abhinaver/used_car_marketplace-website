@@ -11,26 +11,30 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handlesubmit = (event) => {
     event.preventDefault();
 
-    axios
-      .post("http://localhost:8081/login", { email, password })
-      .then((response) => {
-        console.log(response.data);
+  axios.post("http://localhost:8081/login", { email, password })
+    .then((response) => {
         if (response.data.message) {
-          localStorage.setItem("username", response.data.user?.username || "");
-          navigate("/");
-          window.location.reload();
+            const user = response.data.user;
+            console.log("Login response:", user); // 🔹 Debug
+            localStorage.setItem("username", user.username || "");
+            localStorage.setItem("isAdmin", user.isAdmin ? "true" : "false"); // ✅ must store string
+            navigate("/");
+            window.location.reload(); // forces Home.jsx to re-render
         } else {
-          alert("Invalid Credentials");
+            alert("Invalid Credentials");
         }
-      })
+    })
+
+
       .catch((error) => {
         console.error("Error fetching data:", error);
         alert("Login Failed. Try Again.");
       });
   };
+
 
   const handleGoogleLogin = (credentialResponse) => {
     const decoded = jwtDecode(credentialResponse.credential);
@@ -56,7 +60,7 @@ const Login = () => {
   return (
     <div className="login-container">
       <h2>Login to Your Account</h2>
-      <form className="login-form" onSubmit={handleSubmit}>
+      <form className="login-form" onSubmit={handlesubmit}>
         <input
           type="email"
           placeholder="Email"
@@ -84,6 +88,7 @@ const Login = () => {
         <p className="signup-text">
           Don't have an account? <a href="#" onClick={handleSignupClick}>Sign up</a>
         </p>
+        
       </form>
     </div>
   );

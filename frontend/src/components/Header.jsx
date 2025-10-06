@@ -4,7 +4,13 @@ import logo from "../assets/logo.png";
 import { AiOutlineUser } from "react-icons/ai";
 import "./Header.css";
 
-const Header = ({ searchQuery, setSearchQuery, selectedPriceRange, setSelectedPriceRange }) => {
+const Header = ({ 
+  searchQuery, 
+  setSearchQuery, 
+  selectedPriceRange, 
+  setSelectedPriceRange,
+  
+}) => {
   const navigate = useNavigate();
   const dropdownRef = useRef(null);
   const [username, setUsername] = React.useState("");
@@ -28,23 +34,7 @@ const Header = ({ searchQuery, setSearchQuery, selectedPriceRange, setSelectedPr
 
   const handleSearch = (e) => {
     e.preventDefault();
-    console.log("Searching for:", searchQuery);
     navigate("/");
-  };
-
-  const handlePriceChange = (range) => {
-    setSelectedPriceRange(range); // Pass directly to parent
-  };
-
-  const handleLogout = () => {
-    localStorage.removeItem("username");
-    setUsername("");
-    setShowProfileDropdown(false);
-    navigate("/");
-  };
-
-  const toggleProfileDropdown = () => {
-    setShowProfileDropdown(!showProfileDropdown);
   };
 
   return (
@@ -76,13 +66,16 @@ const Header = ({ searchQuery, setSearchQuery, selectedPriceRange, setSelectedPr
           {selectedPriceRange || "All Prices"}
         </button>
         <div className="dropdown-content">
-          <button onClick={() => handlePriceChange("")}>All Prices</button>
-          <button onClick={() => handlePriceChange("<500000")}>Below ₹500,000</button>
-          <button onClick={() => handlePriceChange("500000-1500000")}>₹500,000 - ₹1,500,000</button>
-          <button onClick={() => handlePriceChange("1500000-2500000")}>₹1,500,000 - ₹2,500,000</button>
-          <button onClick={() => handlePriceChange(">2500000")}>Above ₹2,500,000</button>
+          <button onClick={() => setSelectedPriceRange("")}>All Prices</button>
+          <button onClick={() => setSelectedPriceRange("<500000")}>Below ₹500,000</button>
+          <button onClick={() => setSelectedPriceRange("500000-1500000")}>₹500,000 - ₹1,500,000</button>
+          <button onClick={() => setSelectedPriceRange("1500000-2500000")}>₹1,500,000 - ₹2,500,000</button>
+          <button onClick={() => setSelectedPriceRange(">2500000")}>Above ₹2,500,000</button>
         </div>
       </div>
+
+      
+    
 
       <ul className="nav-links">
         <li><Link to="/">Home</Link></li>
@@ -91,10 +84,7 @@ const Header = ({ searchQuery, setSearchQuery, selectedPriceRange, setSelectedPr
 
       {username ? (
         <div className="user-profile" ref={dropdownRef}>
-          <button 
-            className="profile-icon" 
-            onClick={toggleProfileDropdown}
-          >
+          <button className="profile-icon" onClick={() => setShowProfileDropdown(!showProfileDropdown)}>
             <AiOutlineUser size={24} />
           </button>
           
@@ -102,7 +92,15 @@ const Header = ({ searchQuery, setSearchQuery, selectedPriceRange, setSelectedPr
             <div className="profile-dropdown">
               <div className="profile-username"><strong>{username}</strong></div>
               <button onClick={() => navigate(`/my-cars/${username}`)}>My Cars</button>
-              <button onClick={handleLogout}>Logout</button>
+              <button onClick={() => { 
+  localStorage.removeItem("username"); 
+  localStorage.removeItem("isAdmin"); 
+  setUsername(""); 
+  window.location.href = "/";
+}}>
+  Logout
+</button>
+
             </div>
           )}
         </div>

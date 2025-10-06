@@ -23,6 +23,7 @@ const CarCard = ({ car }) => {
       <div className="car-details">
         <h2 className="car_name">{car.name}</h2>
         <p className="car_price">Price: ₹{car.price}</p>
+        <p className="car_km">Kilometers Driven: {car.kilometers_driven.toLocaleString()} km</p>
         <p className="car_location">Location: {car.location ?? "Not specified"}</p>
       </div>
       <button className="view-button" onClick={() => handleViewDetails(car.id)}>View Details</button>

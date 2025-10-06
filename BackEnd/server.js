@@ -1,7 +1,9 @@
 import express from 'express';
 import cors from 'cors';
 
- 
+ import dotenv from "dotenv";
+dotenv.config();
+
 
 const app = express();
 
@@ -39,6 +41,11 @@ app.use("/delete-car", deleteCarRouter);
 
 import uploadRoutes from "./models/upload.js";
 app.use("/", uploadRoutes);
+
+
+import adminRouter from "./models/admin.js";
+app.use("/admin", adminRouter);
+
 
 app.listen(8081, () => {
     console.log(" Server running on port 8081");
